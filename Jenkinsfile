@@ -5,11 +5,16 @@ pipline{
     }
     stages{
         stage('commit'){
-            git url: 'https://github.com/Va16hav07/devops-eval.git' , branch : 'main'
+            steps{
+                git url: 'https://github.com/Va16hav07/devops-eval.git' , branch : 'main'
+            }
         }
         stage('clone'){
-            sh 'git clone ${GIT_URL} ${WORKSPACE}'
-            echo 'Repository cloned'
+            steps{
+                echo ' Cloning the repository'
+                sh 'git clone ${git url}'
+                echo 'Repository cloned'
+            }
         }
         stage('intalling dependencies'){
             steps{
