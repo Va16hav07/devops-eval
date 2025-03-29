@@ -17,26 +17,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script {
-                    try {
-                        sh 'npm test'
-                    } catch (err) {
-                        echo 'No tests defined'
-                    }
-                }
+                sh 'npm test'
+                echo 'Tests executed'
             }
         }
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                script {
-                    try {
-                        sh 'npm run build'
-                        echo 'Application build successfully'
-                    } catch (err) {
-                        echo 'Error building the application'
-                        throw err
-                    }
-                }
+                echo 'Building the project'
+                sh 'npm run build'
+                echo 'Build completed'
+
             }
         }
     }
