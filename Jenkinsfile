@@ -26,19 +26,6 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            steps {
-                script {
-                    try {
-                        sh 'npm run build'
-                        echo 'Build completed successfully'
-                    } catch (err) {
-                        echo 'Build failed'
-                        throw err
-                    }
-                }
-            }
-        }
         stage('Deploy') {
             steps {
                 script {
