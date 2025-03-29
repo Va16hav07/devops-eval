@@ -26,10 +26,17 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                sh 'npm run build'
-                echo 'Build completed'
+                script {
+                    try {
+                        sh 'npm start'
+                        echo 'Application started successfully'
+                    } catch (err) {
+                        echo 'Error starting the application'
+                        throw err
+                    }
+                }
             }
         }
     }
