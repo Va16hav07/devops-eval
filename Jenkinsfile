@@ -1,4 +1,5 @@
 pipline{
+    agent any
     tools{
         nodejs 'nodejs-18'
     }
