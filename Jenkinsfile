@@ -30,10 +30,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'npm start'
-                        echo 'Application started successfully'
+                        sh 'npm run build'
+                        echo 'Application build successfully'
                     } catch (err) {
-                        echo 'Error starting the application'
+                        echo 'Error building the application'
                         throw err
                     }
                 }
